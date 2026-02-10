@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Analytics Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        .navbar {
+            background: white;
+            padding: 20px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .navbar .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .navbar .logo {
+            font-size: 1.2em;
+            font-weight: 700;
+            color: #1a1a4d;
+        }
+
+        .navbar .subtitle {
+            font-size: 0.85em;
+            color: #666;
+            font-weight: 400;
+        }
+
+        .navbar nav a {
+            margin-left: 30px;
+            color: #333;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .navbar nav a:hover {
+            color: #667eea;
+        }
+
+        .hero-section {
+            background: transparent;
+            padding: 80px 40px;
+            min-height: 600px;
+            display: flex;
+            align-items: center;
+        }
+
+        .hero-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 350px 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .profile-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 15px;
+            padding: 40px 30px;
+            text-align: center;
+            color: white;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+        }
+
+        .profile-image {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background: white;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3em;
+            color: #0088cc;
+            overflow: hidden;
+        }
+
+        .profile-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .profile-card h2 {
+            font-size: 1.8em;
+            margin-bottom: 5px;
+        }
+
+        .profile-card .role-tag {
+            font-size: 0.9em;
+            opacity: 0.9;
+            margin-bottom: 30px;
+            letter-spacing: 1px;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .social-links a {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            font-size: 1.5em;
+            transition: transform 0.3s;
+        }
+
+        .social-links a:hover {
+            background: white;
+            color: #667eea;
+            transform: translateY(-3px);
+        }
+
+        .hero-content {
+            color: white;
+        }
+
+        .hero-content h1 {
+            font-size: 4em;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .hero-content .tagline {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+            font-weight: 500;
+        }
+
+        .hero-content .bio {
+            font-size: 1.1em;
+            line-height: 1.8;
+            opacity: 0.9;
+            margin-bottom: 30px;
+            max-width: 600px;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .btn {
+            padding: 12px 30px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: white;
+            color: #1a1a4d;
+        }
+
+        .btn-secondary {
+            border: 2px solid white;
+            color: white;
+            background: transparent;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+
+        .projects-section {
+            padding: 80px 40px;
+            background: transparent;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 50px;
+            color: white;
+        }
+
+        .projects-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+        }
+
+        .project-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3em;
+            color: white;
+	    position: relative;
+            overflow: hidden;
+        }
+	
+	.project-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: relative;
+            z-index: 1;
+        }
+
+        .project-image::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(180deg, transparent 0%, rgba(0,0,0,0.3) 100%);
+            z-index: 2;
+        }
+
+        .project-image .icon-fallback {
+            position: relative;
+            z-index: 3;
+        }
+
+
+        .project-content {
+            padding: 25px;
+        }
+
+        .project-title {
+            font-size: 1.5em;
+            margin-bottom: 15px;
+            color: #1a1a4d;
+            font-weight: 600;
+        }
+
+        .project-description {
+            color: #666;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+	
+	.project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+
+        .tag {
+            background: #f0f0f0;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            color: #667eea;
+            font-weight: 500;
+        }
+
+
+        .project-link {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 10px 25px;
+            border-radius: 25px;
+            text-decoration: none;
+            transition: transform 0.3s;
+            font-weight: 500;
+        }
+
+        .project-link:hover {
+            transform: scale(1.05);
+        }
+
+        footer {
+            background: #1a1a4d;
+            text-align: center;
+            padding: 40px 20px;
+            color: white;
+            opacity: 0.8;
+        }
+
+        @media (max-width: 968px) {
+            .hero-container {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .hero-content h1 {
+                font-size: 3em;
+            }
+
+            .navbar .container {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .navbar nav a {
+                margin-left: 15px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5em;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <div class="container">
+            <div>
+                <div class="logo">CECILIA WANJIRU</div>
+                <div class="subtitle">DATA ANALYST</div>
+            </div>
+            <nav>
+                <a href="#about">ABOUT</a>
+                <a href="#projects">PROJECTS</a>
+                <a href="#contact">CONTACT</a>
+            </nav>
+        </div>
+    </div>
+
+    <section class="hero-section" id="about">
+        <div class="hero-container">
+            <div class="profile-card">
+                <div class="profile-image">
+                    <!-- <img src="C:\Users\user\OneDrive\Desktop\Portfolio.Web\prof.jpg" alt="Cecilia"> -->
+               
+	           <img src=".\prof.jpg" alt="Cecilia"> 
+                </div>
+                <h2>Cecilia Wanjiru</h2>
+                <p class="role-tag">DATA ANALYST</p>
+                <div class="social-links">
+              
+		    <a href="https://www.linkedin.com/in/cecilia-w-751b4520b/" target="_blank" title="LinkedIn">in</a>
+                    <a href="https://github.com/Cecilia-dn" target="_blank" title="GitHub">💻</a>
+                    <a href="mailto:ceciliawanjirudn@gmail.com" title="Email">✉️</a>
+                </div>
+            </div>
+
+            <div class="hero-content">
+                <h1>Hello</h1>
+                <p class="tagline">I'm a Data Analytics Consultant<br>Seeking a Full-Time Position</p>
+                <p class="bio"> 👋🏼 I'm a data professional based in Nairobi, Kenya. With a proven track record of transforming raw data into actionable insights, I specialize in analytics and visualization. With a growing portfolio of projects in Excel, SQL, and Power BI, I thrive on solving complex problems and driving business growth through data-driven decision-making. I am eager to bring my skills to a diverse team committed to achieving excellence.</p>
+                <div class="cta-buttons">
+                    <a href="./resume.pdf" class="btn btn-primary">RESUME</a>
+             
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="projects-section" id="projects">
+        <h2 class="section-title">Projects</h2>
+        <div class="projects-grid">
+            
+            <div class="project-card" onclick="window.open('https://github.com/Cecilia-dn/EPRA_Fuel_Price_Analysis/blob/main/README.md', '_blank')">
+                <div class="project-image">
+			<img src="images/fuel.png" alt="Fuel Prices Dashboard" onerror="this.style.display='none'; 								this.nextElementSibling.style.display='flex'">
+                        <span class="icon-fallback" style="display:none;">⛽</span>
+		</div>
+
+                <div class="project-content">
+                    <h3 class="project-title">EPRA Fuel Price Analysis</h3>
+                    <p class="project-description">Interactive dashboard analyzing fuel prices across 223 Kenyan towns, revealing 6% regional price disparities.</p>
+		
+                    <a href="https://github.com/Cecilia-dn/EPRA_Fuel_Price_Analysis/blob/main/README.md" class="project-link" target="_blank">View 				Project</a>
+                </div>
+            </div>
+
+            <div class="project-card" onclick="window.open('https://github.com/Cecilia-dn/Ditribution-SupplyChain-Analysis/blob/main/README.md', '_blank')">
+                <div class="project-image">
+			<img src="images/distribution.png" alt="Distribution Dashboard" onerror="this.style.display='none'; 								this.nextElementSibling.style.display='flex'">
+                        <span class="icon-fallback" style="display:none;">🚚</span>
+		</div>
+
+                <div class="project-content">
+                    <h3 class="project-title">Distribution Supplychain</h3>
+                    <p class="project-description">Interactive dashboard providing real-time insights into coffee sales performance with dynamic visualizations and KPI tracking.</p>
+	
+                    <a href="https://github.com/Cecilia-dn/Ditribution-SupplyChain-Analysis/blob/main/README.md" class="project-link" target="_blank">View Project</a>
+                </div>
+            </div>
+
+
+             <div class="project-card" onclick="window.open('https://github.com/Cecilia-dn/Sales_Pipeline/blob/main/README.md', '_blank')">
+                <div class="project-image">
+			<img src="images/coffee.png" alt="Coffee Sales Dashboard" onerror="this.style.display='none'; 								this.nextElementSibling.style.display='flex'">
+                        <span class="icon-fallback" style="display:none;">💼</span>
+		</div>
+
+                <div class="project-content">
+                    <h3 class="project-title">Sales Pipeline</h3>
+                    <p class="project-description">SQL-based analysis of a sales pipeline dataset. Includes data cleaning (view creation), performance metrics (win rate, top products, agent KPIs), time-based analysis (monthly revenue, MoM trends), and sales insights (discount vs upsell analysis).</p>
+		
+                    <a href="https://github.com/Cecilia-dn/Sales_Pipeline/blob/main/README.md" class="project-link" target="_blank">View 				Project</a>
+                </div>
+            </div>
+
+             <div class="project-card" onclick="window.open('https://github.com/Cecilia-dn/Webscraping/blob/main/README.md', '_blank')">
+                <div class="project-image">
+			<img src="images/coffee.png" alt="Coffee Sales Dashboard" onerror="this.style.display='none'; 								this.nextElementSibling.style.display='flex'">
+                        <span class="icon-fallback" style="display:none;">⛽</span>
+		</div>
+
+                <div class="project-content">
+                    <h3 class="project-title">Webscrapping</h3>
+                    <p class="project-description">Web scraping to extract data from Wikipedia about the largest private companies in the United States. The output is presented in a well-structured table, offering insights into these companies' industries, revenues, employee counts, and headquarters locations.</p>
+                    <a href="https://github.com/Cecilia-dn/Webscraping/blob/main/README.md" class="project-link" target="_blank">View 				Project</a>
+                </div>
+            </div> 
+
+	<div class="project-card" onclick="window.open('https://github.com/Cecilia-dn/Coffee_sales_Dashboard/blob/main/README.md', '_blank')">
+                <div class="project-image">
+			<img src="images/coffee.png" alt="Coffee Sales Dashboard" onerror="this.style.display='none'; 								this.nextElementSibling.style.display='flex'">
+                        <span class="icon-fallback" style="display:none;">☕</span>
+		</div>
+
+                <div class="project-content">
+                    <h3 class="project-title">Coffee Sales Dashboard</h3>
+                    <p class="project-description">An Excel Dashboard coffee sales analysis across 3 store locations over a 6-month period. The goal was to identify key revenue trends, customer purchasing patterns, and top-selling products.</p>
+	                    <a href="https://github.com/Cecilia-dn/Coffee_sales_Dashboard/blob/main/README.md" class="project-link" target="_blank">View 				Project</a>
+                </div>
+            </div> 
+
+            
+        </div>
+    </section>
+
+    <footer id="contact">
+        <p>&copy; 2026 ceciliawanjirudn@gmail.com. All rights reserved.</p>
+    </footer>
+</body>
+</html>
